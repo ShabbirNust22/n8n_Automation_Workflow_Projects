@@ -1,0 +1,137 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -256,
+        0
+      ],
+      "id": "c8c858ec-7c83-4dcc-a0bf-d3a1f3443e51",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1SBdsg5sRDbsxct-WHvkI_A2D2j4DQdL34Lh71ujx1Cs",
+          "mode": "list",
+          "cachedResultName": "n8n_Automation_Project_03",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SBdsg5sRDbsxct-WHvkI_A2D2j4DQdL34Lh71ujx1Cs/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1SBdsg5sRDbsxct-WHvkI_A2D2j4DQdL34Lh71ujx1Cs/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "Ahmed  Shabbir",
+            "Position": "Electrical Engineer",
+            "Company": "Smart Grid and Power Laboratory,  U.S. Pakistan Center For Advanced Studies In Energy (USPCAS-E) , National University of Sciences and Technology (NUST), Islamabad, Pakistan",
+            "Telephone": "0740898220"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Position",
+              "displayName": "Position",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Company",
+              "displayName": "Company",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Telephone",
+              "displayName": "Telephone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        32,
+        0
+      ],
+      "id": "010b12ed-587c-4c62-8403-532b0712bb4c",
+      "name": "Append row in sheet",
+      "executeOnce": true,
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ZfBl6neVaBaTJW4h",
+          "name": "Google Sheets account 2_Shabbir_Project_03_1"
+        }
+      },
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "34701a8a-44a4-4bc9-ba84-755f20a5a4c2",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "47680bc4a78b16f8f16e98347c4aa75426ba7b52326c9a4ca9bafe3481117b1a"
+  },
+  "nodeGroups": [],
+  "id": "WCuEsiQIgJIrvxHK",
+  "tags": [
+    {
+      "name": "n8n_Project_03",
+      "id": "w2a2cDibvz6t3MUZ",
+      "updatedAt": "2026-07-25T18:30:23.748Z",
+      "createdAt": "2026-07-25T18:30:23.748Z"
+    }
+  ]
+}
