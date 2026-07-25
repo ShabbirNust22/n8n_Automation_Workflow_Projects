@@ -1,0 +1,164 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -208,
+        -16
+      ],
+      "id": "4279c518-f17c-4f3f-b5ca-6fc56eab5e36",
+      "name": "Clicking ‘Execute workflow’_Shabbir_Project_01"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1PnIcDpU9Fauy4H8FfAH5PlDGvPCvlG7i8sHeGNeHr-s",
+          "mode": "list",
+          "cachedResultName": "n8n_Project_01",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PnIcDpU9Fauy4H8FfAH5PlDGvPCvlG7i8sHeGNeHr-s/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1PnIcDpU9Fauy4H8FfAH5PlDGvPCvlG7i8sHeGNeHr-s/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Name",
+              "lookupValue": "Shabbir Moomin"
+            },
+            {
+              "lookupColumn": "Email",
+              "lookupValue": "shabbir.moomin@gmail.com"
+            },
+            {
+              "lookupColumn": "Phone Number",
+              "lookupValue": "074 089 8220"
+            },
+            {
+              "lookupColumn": "Company",
+              "lookupValue": "Paygam Global"
+            },
+            {
+              "lookupColumn": "Role",
+              "lookupValue": "Technical Consultant"
+            },
+            {
+              "lookupColumn": "Address",
+              "lookupValue": "22A, Major Gunaratna Mawathe, Mount Lavinia"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        0,
+        -16
+      ],
+      "id": "8b801999-5f56-46d0-8913-2eb13f65bb2f",
+      "name": "Get row(s) in sheet",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OPfV1Y1jPeqVc3qM",
+          "name": "Google Sheets account_Shabbir_Project_01"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.Email }}",
+        "subject": "Payment Deposit",
+        "emailType": "text",
+        "message": "=Good day {{ $json.Name }}. Payment is deposit by {{ $json.Company }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        208,
+        -16
+      ],
+      "id": "3a356e66-bb42-4ff3-b591-f6b5e01423a5",
+      "name": "Send a message",
+      "webhookId": "bbdd6fd5-fd10-444c-891c-948a90ac2329",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "Wpm1oZbUkJa49YoM",
+          "name": "Gmail account_Shabbir_Project_01"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "n8n Automation - Project 01",
+        "height": 80,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -32,
+        192
+      ],
+      "id": "8095c5fe-50fa-4a91-b40b-1b24c433102c",
+      "name": "Sticky Note"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Clicking ‘Execute workflow’_Shabbir_Project_01": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "43e60a8e-173e-4120-962f-009566699e22",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "47680bc4a78b16f8f16e98347c4aa75426ba7b52326c9a4ca9bafe3481117b1a"
+  },
+  "nodeGroups": [],
+  "id": "MjMAoMBQYLuAjusW",
+  "tags": [
+    {
+      "name": "n8n_Project_01",
+      "id": "MD5qpNgQLGH1aQgu",
+      "updatedAt": "2026-07-25T15:14:46.993Z",
+      "createdAt": "2026-07-25T15:14:46.993Z"
+    }
+  ]
+}
