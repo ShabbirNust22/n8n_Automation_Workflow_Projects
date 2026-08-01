@@ -1,0 +1,181 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -208,
+        32
+      ],
+      "id": "c27b3494-6e60-4f55-9e38-a70d63d04345",
+      "name": "Clicking ‘Execute workflow’_Shabbir_Project_01"
+    },
+    {
+      "parameters": {
+        "content": "n8n Automation - Project 05\nShabbir",
+        "height": 80,
+        "width": 256,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -512,
+        224
+      ],
+      "id": "c3d2590c-bda1-499d-8a5e-ac804cbd45f3",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "20e3c1e6-03bc-4178-8d6e-57f156dfa042",
+              "name": "Hello",
+              "value": "Yo",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        80,
+        -112
+      ],
+      "id": "7bfdf35e-32b2-4ebf-9120-9b997b58d847",
+      "name": "Edit Fields_A"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "33c367b3-068d-40cb-8940-2e2fd0578bb5",
+              "name": "Hello",
+              "value": "Cha",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        80,
+        96
+      ],
+      "id": "3fad880a-48f2-4fe5-955d-e5d04466af37",
+      "name": "Edit Fields_B"
+    },
+    {
+      "parameters": {
+        "amount": 4
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        368,
+        -112
+      ],
+      "id": "80102a39-d625-4080-b114-7abc68fe61c0",
+      "name": "Wait",
+      "webhookId": "97c22a7a-0113-4c2f-8992-8ec00dc349b0"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        608,
+        0
+      ],
+      "id": "186b738c-aabb-4030-8d61-070b03f3b57c",
+      "name": "Merge"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Clicking ‘Execute workflow’_Shabbir_Project_01": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields_A",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Edit Fields_B",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields_A": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields_B": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "21691afc-416a-40d2-852d-f0e66b214ee6",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "47680bc4a78b16f8f16e98347c4aa75426ba7b52326c9a4ca9bafe3481117b1a"
+  },
+  "nodeGroups": [],
+  "id": "C5TYw1wGbQJJfJRX",
+  "tags": [
+    {
+      "updatedAt": "2026-07-26T12:26:35.874Z",
+      "createdAt": "2026-07-26T12:26:35.874Z",
+      "id": "nMnSPIsBlx11E6Pt",
+      "name": "n8n_Project_05"
+    }
+  ]
+}
