@@ -1,0 +1,156 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "b8d54582-dddf-4f25-897c-061efea95232",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -240,
+        -80
+      ],
+      "id": "310ca741-e3e4-4015-b581-ebd58a677e05",
+      "name": "Webhook",
+      "webhookId": "b8d54582-dddf-4f25-897c-061efea95232"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1aKOY_8tNciVSFtDds8AKoo96eTNRimFnDVqfLhoTaA0",
+          "mode": "list",
+          "cachedResultName": "New_Form_Request",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aKOY_8tNciVSFtDds8AKoo96eTNRimFnDVqfLhoTaA0/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aKOY_8tNciVSFtDds8AKoo96eTNRimFnDVqfLhoTaA0/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Host": "={{ $json.headers.host }}",
+            "User Agent": "={{ $json.headers[\"user-agent\"] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Host",
+              "displayName": "Host",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "User Agent",
+              "displayName": "User Agent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -32,
+        -80
+      ],
+      "id": "eb9f9325-7682-43d4-8905-59573fb4c559",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "OPfV1Y1jPeqVc3qM",
+          "name": "Google Sheets account_Shabbir_Project_03"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "shabbir.moomin@gmail.com",
+        "subject": "Attached from n8n Automation",
+        "message": "=Please find the system below.\n{{ $json.Host }} , {{ $json[\"User Agent\"] }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        176,
+        -80
+      ],
+      "id": "02100a7f-081b-45a1-95d5-238499bbd0d6",
+      "name": "Send a message",
+      "webhookId": "87bc4d5e-1d1e-4156-8d97-4cbef2144d2c",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "Wpm1oZbUkJa49YoM",
+          "name": "Gmail account_Shabbir_Project_01"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "8ccd63e5-fa19-41ee-ab46-ac94884873ec",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "47680bc4a78b16f8f16e98347c4aa75426ba7b52326c9a4ca9bafe3481117b1a"
+  },
+  "nodeGroups": [],
+  "id": "e2SDDlAFxdsng82D",
+  "tags": [
+    {
+      "updatedAt": "2026-08-01T12:05:28.732Z",
+      "createdAt": "2026-08-01T12:05:28.732Z",
+      "id": "uqudIr7nvRgJnVjJ",
+      "name": "n8n_Project_09"
+    }
+  ]
+}
