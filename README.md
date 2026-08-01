@@ -31,8 +31,15 @@ Designing an automation workflow using conditional (“if”) logic based on dat
 ## 🧩 Folder Structure
 
 /workflows
-├── email-automation.json
-├── data-cleaning.json
-├── api-integration.json
+<br>
+├── email-automation
+<br>
+├── Weather Forecast Automation
+<br>
+├── Google Sheets Management
+<br>
+├── Data Preprocessing and Timing Control
+<br>
+├── Conditional Logic Workflow
 
 
