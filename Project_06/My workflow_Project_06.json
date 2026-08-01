@@ -1,0 +1,193 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "eba0a17c-0393-4436-969d-c15c562502b4",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "bc211b82-5d5e-49dd-a15c-c562850a3565",
+              "name": "Full Name",
+              "value": "Ahmed Shabbir Moomin",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        208,
+        0
+      ],
+      "id": "5c668716-da1d-4777-af30-e9f4daa3a63e",
+      "name": "Edit Fields_Check"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "07402791-799e-42e2-beb9-cb3862dc5b0a",
+              "name": "=Full Name",
+              "value": "={{ $json[\"Full Name\"] }}",
+              "type": "string"
+            },
+            {
+              "id": "3623bfa6-0a32-44ff-ad89-f07331fc272d",
+              "name": "First_Name",
+              "value": "={{ $json['Full Name'].split(' ').first() }}",
+              "type": "string"
+            },
+            {
+              "id": "fe1cede4-ed7c-4e97-ad0e-f576fa58e470",
+              "name": "Last_Name",
+              "value": "={{ $json['Full Name'].split(' ').last() }}",
+              "type": "string"
+            },
+            {
+              "id": "ef5b12c3-5312-4f1f-9e5a-1d715d6a0e5e",
+              "name": "Middle_Name",
+              "value": "={{ $json['Full Name'].split(' ')[1] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        416,
+        0
+      ],
+      "id": "98829f0d-4f17-4cd6-9f3c-7d6e2af2481a",
+      "name": "Edit Fields_ Recheck"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "eaf3c0ae-e0bc-48aa-af1f-fc8e0aca88ec",
+              "leftValue": "={{ $json.First_Name }}",
+              "rightValue": "=Ahmed",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "bb85d8fb-ba2e-4fc4-b3b7-391c73ed6599",
+              "leftValue": "={{ $json.Last_Name }}",
+              "rightValue": "Moomin",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        640,
+        0
+      ],
+      "id": "c53b8dde-9b24-4546-bff0-d7c908c2a7d8",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "content": "Project 06\nShabbir",
+        "height": 80,
+        "width": 150
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        304,
+        -128
+      ],
+      "id": "cca23a26-c7d8-4763-9ba3-b486cb7bca71",
+      "name": "Sticky Note"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields_Check",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields_Check": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields_ Recheck",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields_ Recheck": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "09655dd2-4102-442b-88f2-bb0170255994",
+  "meta": {
+    "instanceId": "47680bc4a78b16f8f16e98347c4aa75426ba7b52326c9a4ca9bafe3481117b1a"
+  },
+  "nodeGroups": [],
+  "id": "GrSWmGvLfH0yvtul",
+  "tags": [
+    {
+      "updatedAt": "2026-07-28T17:05:25.377Z",
+      "createdAt": "2026-07-28T17:05:25.377Z",
+      "id": "gwVAgQ1emQxmcr7d",
+      "name": "n8n_Project_06"
+    }
+  ]
+}
